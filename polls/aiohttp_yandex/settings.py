@@ -2,7 +2,7 @@ import pathlib
 import yaml
 
 BASE_DIR = pathlib.Path(__file__).parent.parent
-config_path = BASE_DIR / 'config' / 'openapi.yaml'
+config_db_path = BASE_DIR / 'config' / 'postgres.yaml'
 
 
 def get_config(path):
@@ -11,4 +11,4 @@ def get_config(path):
     return config
 
 
-config = get_config(config_path)
+config_db = get_config(config_db_path)

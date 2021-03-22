@@ -1,2 +1,4 @@
 aiohttp
 pyyaml
+psycopg2-binary
+requests

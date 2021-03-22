@@ -1,4 +1,4 @@
-mysql:
+postgres:
   database: yandex_db
   user: yandex_app
   password: sup3r_s3cr3t_p4ss
