@@ -1,8 +1,5 @@
-postgres:
-  database: aiohttpdemo_polls
-  user: aiohttpdemo_user
-  password: aiohttpdemo_pass
+mysql:
+  database: yandex_db
+  user: yandex_app
+  password: sup3r_s3cr3t_p4ss
   host: localhost
-  port: 5432
-  minsize: 1
-  maxsize: 5
