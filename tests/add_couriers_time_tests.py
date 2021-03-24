@@ -7,7 +7,7 @@ url = 'http://0.0.0.0:8080/couriers'
 curr = time.time()
 
 data = []
-for i in range(1, 8000):
+for i in range(1, 4):
     val = dict()
     val["courier_id"] = i
     val["courier_type"] = "foot"

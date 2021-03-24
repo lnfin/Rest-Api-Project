@@ -11,3 +11,9 @@ CREATE TABLE couriers (
     working_hours text ARRAY
 );
 
+CREATE TABLE orders(
+    id serial PRIMARY KEY,
+    weight  float NOT NULL,
+    region integer NOT NULL,
+    delivery_hours text ARRAY
+);
