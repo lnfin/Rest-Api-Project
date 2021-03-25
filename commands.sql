@@ -17,3 +17,10 @@ CREATE TABLE orders(
     region integer NOT NULL,
     delivery_hours text ARRAY
 );
+
+CREATE TABLE assigns(
+    courier_id integer NOT NULL,
+    order_id integer NOT NULL,
+    assign_time text,
+    complete_time text
+);

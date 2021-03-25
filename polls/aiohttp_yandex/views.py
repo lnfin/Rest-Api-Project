@@ -38,8 +38,30 @@ async def load_orders(self, *, loads=json.loads):
 async def assign_orders(self, *, loads=json.loads):
     body = await self.text()
     id = json.loads(body)['courier_id']
-    resp, orders = db.assign_orders(id)
+    resp, orders, time = db.assign_orders(id)
     if resp:
-        return web.Response(text=json.loads(orders), status=200)
+        if orders:
+            return web.Response(text=json.dumps({"orders": orders, "assign_time": time}), status=200)
+        else:
+            return web.Response(text=json.dumps({"orders": orders}), status=200)
+    else:
+        return web.Response(status=400)
+
+
+async def order_complete(self, *, loads=json.loads):
+    body = await self.text()
+    req = json.loads(body)
+    resp, id = db.complete_order(req)
+    if resp:
+        return web.Response(text=json.dumps({"order_id": id}), status=200)
+    else:
+        return web.Response(status=400)
+
+
+async def get_courier(request):
+    courier_id = request.match_info['id']
+    resp, info = db.courier_info(courier_id)
+    if resp:
+        return web.Response(text=json.dumps(info), status=200)
     else:
         return web.Response(status=400)
