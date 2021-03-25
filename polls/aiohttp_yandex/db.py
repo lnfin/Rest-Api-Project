@@ -95,7 +95,10 @@ class DB:
 
         sql = f'''SELECT * FROM couriers WHERE id = {id};'''
         cur.execute(sql)
-        resp = cur.fetchall()[0]
+        resp = cur.fetchall()
+        if not resp:
+            return False, {}
+        resp = resp[0]
         info = dict()
         info['courier_id'] = resp[0]
         info['courier_type'] = resp[1]
